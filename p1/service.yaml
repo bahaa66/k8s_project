@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+spec:
+  selector:
+    app: mongodb # service look for pods with this label and targetlabel from below 
+  ports:
+    - protocol: TCP
+      port: 27017 # MongoDB port listening on the service 
+      targetPort: 27017 # Port on the container that the service should forward traffic to
+
