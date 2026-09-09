@@ -1,0 +1,17 @@
+# pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-test
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sleep", "3600"]
+    volumeMounts:
+    - name: data
+      mountPath: /data
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: shared-data-pvc
